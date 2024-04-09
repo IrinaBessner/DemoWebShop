@@ -106,6 +106,7 @@ public class TestBase {
     public void fillLoginFormForSave(String secondname, String email, String firstname) {
         type(By.id("FirstName"), firstname);
         type(By.id("LastName"), secondname);
+
         type(By.id("Email"), email);
     }
 

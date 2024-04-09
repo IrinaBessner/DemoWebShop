@@ -1,5 +1,6 @@
 package com.demowebshop.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -12,9 +13,9 @@ public class SaveContactTests extends TestBase {
     }
 
     @Test
-    public void saveAccountPositiveTest(String secondname, String email, String firstname){
+    public void saveAccountPositiveTest() {
         clickOnEmailAccount();
-        fillLoginFormForSave(secondname, email, firstname);
         clickOnSaveButton();
     }
 }
+
