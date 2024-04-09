@@ -7,14 +7,16 @@ import org.testng.annotations.Test;
 public class SaveContactTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {
-        fillLoginForm();
+        clickOnLoginLink();
+        fillLoginForm(new User().setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!"));
         clickOnLoginButton();
     }
 
     @Test
-    public void saveAccountPositiveTest(String secondname, String email, String firstname){
+    public void saveAccountPositiveTest() {
         clickOnEmailAccount();
-        fillLoginFormForSave(secondname, email, firstname);
         clickOnSaveButton();
     }
 }
+

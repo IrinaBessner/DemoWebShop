@@ -1,12 +1,9 @@
 package com.demowebshop.tests;
 
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
@@ -22,7 +19,6 @@ public class TestBase {
         driver.get("https://demowebshop.tricentis.com/");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
     }
 
     @AfterMethod(enabled = false)
@@ -39,40 +35,47 @@ public class TestBase {
     }
 
     public void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
+        if (text != null) {
+            click(locator);
+            driver.findElement(locator).clear();
+            driver.findElement(locator).sendKeys(text);
+        }
     }
 
     public boolean isSignOnPresent() {
         return isElementPresent((By.xpath("//a[text()='akuna@mata.ta']")));
     }
 
+
     public void clickOnRegisterButton() {
         click(By.id("register-button"));
     }
 
-    public void fillRegisterForm(String email, String password, String firstname, String secondname) {
-        type(By.id("FirstName"), firstname);
-        type(By.id("LastName"), secondname);
-        type(By.id("Email"), email);
-        type(By.id("Password"), password);
-        type(By.id("ConfirmPassword"), password);
+    public void fillRegisterForm(User user) {
+        type(By.id("FirstName"), user.getFirstname());
+        type(By.id("LastName"), user.getSecondname());
+        type(By.id("Email"), user.getEmail());
+        type(By.id("Password"), user.getPassword());
+        type(By.id("ConfirmPassword"), user.getPassword());
     }
 
     public void clickOnRegisterLink() {
         click(By.cssSelector("[href='/register']"));
     }
 
-    public void fillLoginForm() {
-        click(By.cssSelector("[href='/login']"));
-        type(By.id("Email"), "akuna@mata.ta");
-        type(By.id("Password"), "Africa2024!");
+    public void fillLoginForm(User user) {
+        type(By.id("Email"), user.getEmail());
+        type(By.id("Password"), user.getPassword());
     }
 
     public void clickOnLoginButton() {
         click(By.cssSelector("[value='Log in']"));
     }
+
+    public void clickOnLoginLink() {
+        click(By.cssSelector("[href='/login']"));
+    }
+
 
     public void clickOnShoppingCartLink() {
         click(By.linkText("Shopping cart"));
@@ -88,7 +91,7 @@ public class TestBase {
 
     public boolean isItemAddedToCart(String text) {
         List<WebElement> items = driver.findElements(By.cssSelector("tr td:nth-child(3) a"));
-        for (WebElement element:items){
+        for (WebElement element : items) {
             if (element.getText().contains(text))
                 return true;
         }
@@ -106,6 +109,7 @@ public class TestBase {
     public void fillLoginFormForSave(String secondname, String email, String firstname) {
         type(By.id("FirstName"), firstname);
         type(By.id("LastName"), secondname);
+
         type(By.id("Email"), email);
     }
 
@@ -121,15 +125,19 @@ public class TestBase {
         return 0;
     }
 
-    public void pause(int millis){
+    public void pause(int millis) {
         try {
             Thread.sleep(millis);
-        }catch (InterruptedException e){
+        } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
     }
 
     public boolean isDemoWebShopPresentPresent() {
         return isElementPresent(By.cssSelector("title"));
+    }
+
+    protected boolean isWarningPresentLogin() {
+        return isElementPresent(By.xpath("//span[contains(text(),'Login was unsuccessful. Please correct the errors ')]"));
     }
 }

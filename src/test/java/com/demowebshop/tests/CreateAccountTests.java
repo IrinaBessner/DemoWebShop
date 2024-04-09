@@ -14,7 +14,11 @@ public class CreateAccountTests extends TestBase {
 //        type(By.id("Email"), "akuna@ma.de");
 
         clickOnRegisterLink();
-        fillRegisterForm("akuna@mata.ta", "Africa2024!", "Akuna", "Matata");
+        fillRegisterForm(new User().setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!")
+                .setPassword("Africa2024!")
+                .setFirstname("Akuna")
+                .setSecondname("Matata"));
         clickOnRegisterButton();
         Assert.assertTrue(isSignOnPresent());
     }
@@ -22,7 +26,11 @@ public class CreateAccountTests extends TestBase {
     @Test
     public void createNewAccountWithExistedEmailNegativeTest() {
         clickOnRegisterLink();
-        fillRegisterForm("akuna@mata.ta", "Africa2024!", "Akuna", "Matata");
+        fillRegisterForm(new User()
+                .setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!")
+                .setFirstname("Akuna")
+                .setSecondname("Matata"));
         clickOnRegisterButton();
         Assert.assertTrue(isElementPresent(By.xpath("//li[.='The specified email already exists']")));
     }

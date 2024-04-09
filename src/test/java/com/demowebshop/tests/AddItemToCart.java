@@ -9,7 +9,9 @@ public class AddItemToCart extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
-        fillLoginForm();
+        clickOnLoginLink();
+        fillLoginForm(new User().setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!"));
         clickOnLoginButton();
     }
 
@@ -24,7 +26,7 @@ public class AddItemToCart extends TestBase {
     }
 
     @AfterMethod
-    public void postCondition(){
+    public void postCondition() {
         removeItem();
     }
 }
