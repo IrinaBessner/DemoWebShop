@@ -1,5 +1,6 @@
 package com.demowebshop.tests;
 
+import org.openqa.selenium.By;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
