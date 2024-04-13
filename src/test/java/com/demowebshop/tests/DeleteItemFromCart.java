@@ -8,13 +8,16 @@ public class DeleteItemFromCart extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
+        if (!isLoginLinkPresent()){
+            clickOnLogOutLink();
+        }
         clickOnLoginLink();
         fillLoginForm(new User().setEmail("akuna@mata.ta")
                 .setPassword("Africa2024!"));
 
         clickOnLoginButton();
 
-        clickOnItempicture();
+        clickOnItemPicture();
         clickOnAddTocart();
         clickOnShoppingCartLink();
     }

@@ -5,15 +5,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
 
 import java.time.Duration;
 import java.util.List;
 
 public class TestBase {
-    WebDriver driver;
+    static WebDriver driver;
 
     @BeforeMethod
+    public void ensurePrecondition() {
+        if (!isLoginLinkPresent()) {
+            clickOnLogOutLink();
+        }
+    }
+
+    //@BeforeMethod
+    @BeforeSuite
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://demowebshop.tricentis.com/");
@@ -21,7 +31,8 @@ public class TestBase {
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
-    @AfterMethod(enabled = false)
+    //@AfterMethod(enabled = false)
+    @AfterSuite(enabled = false)
     public void tearDown() {
         driver.quit();
     }
@@ -41,11 +52,6 @@ public class TestBase {
             driver.findElement(locator).sendKeys(text);
         }
     }
-
-    public boolean isSignOnPresent() {
-        return isElementPresent((By.xpath("//a[text()='akuna@mata.ta']")));
-    }
-
 
     public void clickOnRegisterButton() {
         click(By.id("register-button"));
@@ -76,6 +82,9 @@ public class TestBase {
         click(By.cssSelector("[href='/login']"));
     }
 
+    public void clickOnSaveButton() {
+        click(By.cssSelector("[value='Save']"));
+    }
 
     public void clickOnShoppingCartLink() {
         click(By.linkText("Shopping cart"));
@@ -85,7 +94,7 @@ public class TestBase {
         click(By.id("add-to-cart-button-31"));
     }
 
-    public void clickOnItempicture() {
+    public void clickOnItemPicture() {
         click(By.cssSelector(".item-box:nth-child(3) .picture"));
     }
 
@@ -98,24 +107,39 @@ public class TestBase {
         return false;
     }
 
-    public void clickOnSaveButton() {
-        click(By.cssSelector("[value='Save']"));
+    public void removeItem() {
+        click(By.name("removefromcart"));
+        click(By.cssSelector("[value='Update shopping cart']"));
     }
 
     public void clickOnEmailAccount() {
         click((By.xpath("//a[text()='akuna@mata.ta']")));
     }
 
-    public void fillLoginFormForSave(String secondname, String email, String firstname) {
-        type(By.id("FirstName"), firstname);
-        type(By.id("LastName"), secondname);
-
-        type(By.id("Email"), email);
+    public void ifEmailAlreadyExist() {
+        if ((isElementPresent(By.xpath("//li[.='The specified email already exists']")))) {
+            clickOnLoginLink();
+        }
     }
 
-    public void removeItem() {
-        click(By.name("removefromcart"));
-        click(By.cssSelector("[value='Update shopping cart']"));
+    public boolean isSignOnPresent() {
+        return isElementPresent((By.xpath("//a[text()='akuna@mata.ta']")));
+    }
+
+    public void clickOnLogOutLink() {
+        click(By.cssSelector("[href='/logout']"));
+    }
+
+    public boolean isLoginLinkPresent() {
+        return isElementPresent(By.cssSelector("[href='/login']"));
+    }
+
+    public boolean isDemoWebShopComponentPresent() {
+        return isElementPresent(By.cssSelector("[href='https://academy.tricentis.com']"));
+    }
+
+    public void clickOnDemoWebShopLogo() {
+        click(By.xpath("//img[@title='']"));
     }
 
     public int sizeOfItems() {
@@ -131,13 +155,5 @@ public class TestBase {
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
-    }
-
-    public boolean isDemoWebShopPresentPresent() {
-        return isElementPresent(By.cssSelector("title"));
-    }
-
-    protected boolean isWarningPresentLogin() {
-        return isElementPresent(By.xpath("//span[contains(text(),'Login was unsuccessful. Please correct the errors ')]"));
     }
 }

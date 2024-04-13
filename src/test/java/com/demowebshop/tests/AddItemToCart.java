@@ -9,16 +9,19 @@ public class AddItemToCart extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
-        clickOnLoginLink();
-        fillLoginForm(new User().setEmail("akuna@mata.ta")
-                .setPassword("Africa2024!"));
-        clickOnLoginButton();
+        if (!isLoginLinkPresent());{
+            clickOnLogOutLink();
+        }
     }
 
     @Test
     public void addItemToCardPositiveTest() {
+        clickOnLoginLink();
+        fillLoginForm(new User().setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!"));
+        clickOnLoginButton();
         // Выбрать товар  и добавить его в корзину
-        clickOnItempicture();
+        clickOnItemPicture();
         clickOnAddTocart();
         clickOnShoppingCartLink();
         // Проверить, что товар успешно добавлен в корзину
