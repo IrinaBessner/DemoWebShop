@@ -10,14 +10,14 @@ public class SaveContactTests extends TestBase {
         if (!isLoginLinkPresent()){
             clickOnLogOutLink();
         }
-        clickOnLoginLink();
-        fillLoginForm(new User().setEmail("akuna@mata.ta")
-                .setPassword("Africa2024!"));
-        clickOnLoginButton();
     }
 
     @Test
     public void saveAccountPositiveTest() {
+        clickOnLoginLink();
+        fillLoginForm(new User().setEmail("akuna@mata.ta")
+                .setPassword("Africa2024!"));
+        clickOnLoginButton();
         clickOnEmailAccount();
         clickOnSaveButton();
     }
