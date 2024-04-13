@@ -14,10 +14,9 @@ public class DeleteItemFromCart extends TestBase {
         clickOnLoginLink();
         fillLoginForm(new User().setEmail("akuna@mata.ta")
                 .setPassword("Africa2024!"));
-
         clickOnLoginButton();
 
-        clickOnItemPicture();
+       clickOnItemPicture();
         clickOnAddTocart();
         clickOnShoppingCartLink();
     }
