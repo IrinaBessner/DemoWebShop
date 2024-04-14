@@ -1,18 +1,22 @@
 package com.demowebshop.tests;
 
+import com.demowebshop.fw.ApplicationManager;
+import org.openqa.selenium.remote.Browser;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 
-public class TestBase extends ApplicationManager{
+public class TestBase {
+
+    protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser", Browser.CHROME.browserName()));
 
     @BeforeSuite
     public void setUp() {
-        init();
+        app.init();
     }
 
-    @AfterSuite(enabled = false)
+    @AfterSuite
     public void tearDown() {
-        stop();
+        app.stop();
     }
 
 }

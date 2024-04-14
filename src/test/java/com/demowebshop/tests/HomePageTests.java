@@ -8,14 +8,14 @@ public class HomePageTests extends TestBase {
 
     @BeforeMethod
     public void ensurePrecondition() {
-        if (!isDemoWebShopComponentPresent()) {
-            clickOnDemoWebShopLogo();
+        if (!app.getHomePage().isDemoWebShopComponentPresent()) {
+            app.getHomePage().clickOnDemoWebShopLogo();
         }
     }
 
     @Test
     public void isDemoWebShopPresentTest() {
-        Assert.assertTrue(isDemoWebShopComponentPresent());
+        Assert.assertTrue(app.getHomePage().isDemoWebShopComponentPresent());
     }
 
 }
