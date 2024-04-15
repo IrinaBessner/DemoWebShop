@@ -57,6 +57,7 @@ public class UserHelper extends BaseHelper {
     }
 
     public void clickOnLoginLink() { click(By.cssSelector("[href='/login']")); }
+
     public void clickOnEmailAccount() {
         click((By.xpath("//a[text()='akuna@mata.ta']")));
     }

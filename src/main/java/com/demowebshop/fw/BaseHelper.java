@@ -46,8 +46,8 @@ public class BaseHelper {
         File screenshot = new File("screenshots/screen-" + System.currentTimeMillis() + ".png");
         try {
             Files.copy(tmp, screenshot);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException el) {
+            throw new RuntimeException(el);
         }
         return screenshot.getAbsolutePath();
     }
