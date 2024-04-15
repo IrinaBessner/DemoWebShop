@@ -17,5 +17,4 @@ public class HomePageTests extends TestBase {
     public void isDemoWebShopPresentTest() {
         Assert.assertTrue(app.getHomePage().isDemoWebShopComponentPresent());
     }
-
 }

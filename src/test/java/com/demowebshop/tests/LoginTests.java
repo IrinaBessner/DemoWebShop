@@ -21,7 +21,7 @@ public class LoginTests extends TestBase {
                 .setPassword("Africa2024!"));
 
         app.getUser().clickOnLoginButton();
-        Assert.assertTrue(app.getUser().isLoginOnPresent());
+        Assert.assertTrue(app.getUser().isLogOutLinkPresent());
     }
 
     @Test

@@ -38,7 +38,7 @@ public class UserHelper extends BaseHelper {
         click(By.cssSelector("[value='Save']"));
     }
 
-    public boolean isLoginOnPresent() {
+    public boolean isLogOutLinkPresent() {
         return isElementPresent((By.cssSelector("[href='/logout']")));
     }
 

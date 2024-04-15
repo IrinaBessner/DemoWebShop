@@ -12,7 +12,6 @@ public class HomePageHelper extends BaseHelper{
         return isElementPresent(By.cssSelector("[href='https://academy.tricentis.com']"));
     }
 
-
     public void clickOnDemoWebShopLogo() {
         click(By.xpath("//img[@title='']"));
     }

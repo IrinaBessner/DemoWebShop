@@ -17,7 +17,7 @@ public class DeleteItemFromCartTests extends TestBase {
                 .setPassword("Africa2024!"));
         app.getUser().clickOnLoginButton();
 
-       app.getItem().clickOnItemPicture();
+        app.getItem().clickOnItemPicture();
         app.getItem().clickOnAddTocart();
         app.getItem().clickOnShoppingCartLink();
     }

@@ -54,4 +54,5 @@ public class ApplicationManager {
     public void stop() {
         driver.quit();
     }
+
 }

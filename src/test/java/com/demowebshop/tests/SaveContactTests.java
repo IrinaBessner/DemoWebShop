@@ -4,7 +4,6 @@ import com.demowebshop.models.User;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
-
 public class SaveContactTests extends TestBase {
     @BeforeMethod
     public void ensurePrecondition() {

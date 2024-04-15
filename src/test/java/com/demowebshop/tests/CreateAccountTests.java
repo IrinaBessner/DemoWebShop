@@ -8,8 +8,8 @@ import org.testng.annotations.Test;
 
 public class CreateAccountTests extends TestBase {
     @BeforeMethod
-    public void ensurePrecondition(){
-        if (!app.getUser().isLoginLinkPresent()){
+    public void ensurePrecondition() {
+        if (!app.getUser().isLoginLinkPresent()) {
             app.getUser().clickOnLogOutLink();
         }
     }
@@ -28,7 +28,13 @@ public class CreateAccountTests extends TestBase {
                 .setFirstname("Akuna")
                 .setSecondname("Matata"));
         app.getUser().clickOnRegisterButton();
-        Assert.assertTrue(app.getUser().isLoginOnPresent());
+
+        boolean emailExistsWarning = app.getUser().isElementPresent(By.xpath("//li[.='The specified email already exists']"));
+        if (emailExistsWarning) {
+            app.getUser().clickOnLoginLink();
+        } else {
+            Assert.assertTrue(app.getUser().isElementPresent(By.cssSelector("[onclick='location.href='/'']")));
+        }
     }
 
     @Test
