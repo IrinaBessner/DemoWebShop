@@ -6,6 +6,7 @@ public class User {
     private String firstname;
     private String secondname;
 
+
     public User setEmail(String email) {
         this.email = email;
         return this;
