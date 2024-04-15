@@ -14,7 +14,7 @@ public class CreateAccountTests extends TestBase {
         }
     }
 
-    @Test(enabled = false)
+    @Test
     public void createNewAccountPositiveTest() {
 //        Random random = new Random();
 //        int i = random.nextInt(1000) + 1000;
