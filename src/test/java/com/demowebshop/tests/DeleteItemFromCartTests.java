@@ -1,5 +1,6 @@
 package com.demowebshop.tests;
 
+import com.demowebshop.data.UserData;
 import com.demowebshop.models.User;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -13,8 +14,8 @@ public class DeleteItemFromCartTests extends TestBase {
             app.getUser().clickOnLogOutLink();
         }
         app.getUser().clickOnLoginLink();
-        app.getUser().fillLoginForm(new User().setEmail("akuna@mata.ta")
-                .setPassword("Africa2024!"));
+        app.getUser().fillLoginForm(new User().setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginButton();
 
         app.getItem().clickOnItemPicture();

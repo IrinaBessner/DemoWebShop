@@ -37,7 +37,6 @@ public class ItemtHelper extends BaseHelper {
     public void removeItem() {
         click(By.name("removefromcart"));
         click(By.cssSelector("[value='Update shopping cart']"));
-
     }
 
     public int sizeOfItems() {
@@ -46,6 +45,5 @@ public class ItemtHelper extends BaseHelper {
         }
         return 0;
     }
-
 }
 

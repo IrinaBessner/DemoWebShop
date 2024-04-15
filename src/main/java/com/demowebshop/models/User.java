@@ -41,4 +41,14 @@ public class User {
     public String getSecondname() {
         return secondname;
     }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", secondname='" + secondname + '\'' +
+                '}';
+    }
 }

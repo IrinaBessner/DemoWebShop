@@ -50,16 +50,26 @@ public class UserHelper extends BaseHelper {
         return isElementPresent(By.cssSelector("[href='/login']"));
     }
 
-    public void ifEmailAlreadyExist() {
+    public void ifEmailAlreadyExists() {
         if ((isElementPresent(By.xpath("//li[.='The specified email already exists']")))) {
             clickOnLoginLink();
         }
     }
+    public boolean ifEmailAlreadyExistsWarning(){
+        return isElementPresent(By.xpath("//li[.='The specified email already exists']"));
+    }
+    public boolean ifAccountLinkExists(){
+       return isElementPresent(By.cssSelector("ul:nth-child(1) .account"));
+    }
+
 
     public void clickOnLoginLink() { click(By.cssSelector("[href='/login']")); }
 
     public void clickOnEmailAccount() {
         click((By.xpath("//a[text()='akuna@mata.ta']")));
+    }
+    public boolean isWarningPresentLogin() {
+        return isElementPresent(By.xpath("//span[contains(text(),'Login was unsuccessful. Please correct the errors ')]"));
     }
 }
 
