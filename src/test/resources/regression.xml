@@ -5,13 +5,15 @@
         <classes>
             <class name="com.demowebshop.tests.HomePageTests"/>
             <class name="com.demowebshop.tests.CreateAccountTests">
+
                 <methods>
                     <exclude name=".*Negative.*"/>
+                    <exclude name=".*From.*"/>
                 </methods>
+
             </class>
             <class name="com.demowebshop.tests.AddItemToCartTests"/>
-            <class name="com.demowebshop.tests.DeleteItemFromCartTests"/>
+            <class name="com.demowebshop.tests.DeleteItemAusCartTests"/>
         </classes>
     </test>
-
 </suite>

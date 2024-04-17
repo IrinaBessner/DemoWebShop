@@ -1,5 +1,6 @@
 package com.demowebshop.tests;
 
+import com.demowebshop.data.UserData;
 import com.demowebshop.models.User;
 import org.openqa.selenium.By;
 import org.testng.Assert;
@@ -17,8 +18,8 @@ public class LoginTests extends TestBase {
     @Test
     public void loginPositiveTest() {
         app.getUser().clickOnLoginLink();
-        app.getUser().fillLoginForm(new User().setEmail("akuna@mata.ta")
-                .setPassword("Africa2024!"));
+        app.getUser().fillLoginForm(new User().setEmail(UserData.EMAIL)
+                .setPassword(UserData.PASSWORD));
 
         app.getUser().clickOnLoginButton();
         Assert.assertTrue(app.getUser().isLogOutLinkPresent());
@@ -27,14 +28,14 @@ public class LoginTests extends TestBase {
     @Test
     public void loginNegativeTestWithoutEmail() {
         app.getUser().clickOnLoginLink();
-        app.getUser().fillLoginForm(new User().setPassword("Africa2024!"));
+        app.getUser().fillLoginForm(new User().setPassword(UserData.PASSWORD));
         app.getUser().clickOnLoginButton();
-        Assert.assertTrue(isWarningPresentLogin());
+        Assert.assertTrue(app.getUser().isWarningPresentLogin());
     }
 
-    public boolean isWarningPresentLogin() {
-        return app.getUser().isElementPresent(By.xpath("//span[contains(text(),'Login was unsuccessful. Please correct the errors ')]"));
-    }
+
+
+
 }
 
 

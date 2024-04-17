@@ -1,6 +1,5 @@
 package com.demowebshop.data;
 
-import java.util.Random;
 
 public class UserData {
 

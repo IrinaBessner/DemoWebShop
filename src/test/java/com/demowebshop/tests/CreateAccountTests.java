@@ -2,21 +2,12 @@ package com.demowebshop.tests;
 
 import com.demowebshop.data.UserData;
 import com.demowebshop.models.User;
-import org.openqa.selenium.By;
+import com.demowebshop.utils.DataProviders;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 import java.util.Random;
-
 
 public class CreateAccountTests extends TestBase {
     @BeforeMethod
@@ -34,7 +25,6 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnRegisterLink();
         app.getUser().fillRegisterForm(new User()
                 .setEmail("akuna" + i + "@ma.ta")
-                //.setEmail(UserData.EMAIL)
                 .setPassword(UserData.PASSWORD)
                 .setPassword(UserData.PASSWORD)
                 .setFirstname(UserData.FIRSTNAME)
@@ -57,35 +47,34 @@ public class CreateAccountTests extends TestBase {
         Assert.assertTrue(app.getUser().ifEmailAlreadyExistsWarning());
         app.getUser().ifEmailAlreadyExists();
     }
+
+    @Test(dataProvider = "createNewAccountFromCsvFile", dataProviderClass = DataProviders.class)
+    public void createNewAccountPositiveTestFromDataProviderWithCsvFile(User user) {
+        app.getUser().clickOnRegisterLink();
+        app.getUser().fillRegisterForm(user);
+        app.getUser().clickOnRegisterButton();
+
+        Assert.assertTrue(app.getUser().ifAccountLinkExists());
+    }
 }
 
 
-//    @DataProvider
-//    public Iterator<Object[]> createNewAccountFromCsvFile() throws IOException {
-//        List<Object[]> list = new ArrayList<>();
+//    @Test(dataProvider = "createNewAccount", dataProviderClass = DataProviders.class)
+//    public void createNewAccountPositiveTestFromDataProvider(String email, String password,String confpassword, String firstname, String secondname) {
 //
-//        BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/userdata.csv")));
-//        String line = reader.readLine();
-//        while (line != null) {
-//
-//            String[] split = line.split(",");
-//            list.add(new Object[]{new User()
-//                    .setEmail(split[0]).setPassword(split[1]).setPassword(split[2]).setFirstname(split[3]).setSecondname(split[4])});
-//
-//            line= reader.readLine();
-//        }
-//        return list.iterator();
-//    }
-//
-//    @Test(dataProvider = "createNewAccountFromCsvFile")
-//    public void createNewAccountPositiveTestFromDataProviderWithCsvFile(User user) {
 //        app.getUser().clickOnRegisterLink();
-//        app.getUser().fillRegisterForm(user);
+//        app.getUser().fillRegisterForm(new User()
+//               .setEmail(email)
+//                .setPassword(password)
+//                .setPassword(confpassword)
+//                .setFirstname(firstname)
+//                .setSecondname(secondname));
 //        app.getUser().clickOnRegisterButton();
 //
 //        Assert.assertTrue(app.getUser().ifAccountLinkExists());
 //    }
-//}
+
+
 
 
 

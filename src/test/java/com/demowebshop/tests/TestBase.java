@@ -29,9 +29,10 @@ public class TestBase {
     }
 
     @BeforeMethod
-    public void startTest(Method method) {
-        logger.info("Start test " + method.getName() );
+    public void startTest(Method method, Object[] p) {
+        logger.info("Start test " + method.getName() +" with data: " + Arrays.asList(p) );
     }
+
     @AfterMethod
     public void stopTest(ITestResult result) {
         if (result.isSuccess()) {

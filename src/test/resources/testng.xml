@@ -7,5 +7,4 @@
             <class name="com.demowebshop.tests.CreateAccountTests"/>
         </classes>
     </test>
-
 </suite>
