@@ -8,7 +8,7 @@
 
                 <methods>
                     <exclude name=".*Negative.*"/>
-                    <exclude name=".*From.*"/>
+
                 </methods>
 
             </class>
