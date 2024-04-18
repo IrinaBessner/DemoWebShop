@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.demowebshop.tests.SaveContactTests" tests="1" skipped="0" failures="0" errors="0" timestamp="2024-04-17T21:30:24" hostname="LENOVO-PC" time="2.302">
+  <properties/>
+  <testcase name="saveAccountPositiveTest" classname="com.demowebshop.tests.SaveContactTests" time="2.302"/>
+  <system-out><![CDATA[23:30:13.455 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test saveAccountPositiveTest with data: []
+23:30:26.319 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED saveAccountPositiveTest
+23:30:26.320 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:30:26.321 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

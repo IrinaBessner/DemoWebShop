@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.demowebshop.tests.CreateAccountTests" tests="5" skipped="0" failures="0" errors="0" timestamp="2024-04-17T21:28:38" hostname="LENOVO-PC" time="56.519">
+  <properties/>
+  <testcase name="createNewAccountPositiveTest" classname="com.demowebshop.tests.CreateAccountTests" time="2.329"/>
+  <testcase name="createNewAccountPositiveTestFromDataProviderWithCsvFile[0](User{email='jonsmith2@gm.de', password='Berlin2024$$', firstname='Jon', secondname='Smith'})" classname="com.demowebshop.tests.CreateAccountTests" time="2.392"/>
+  <testcase name="createNewAccountPositiveTestFromDataProviderWithCsvFile[1](User{email='pauldin2@gm.su', password='Oslo202024!', firstname='Paul', secondname='Din'})" classname="com.demowebshop.tests.CreateAccountTests" time="2.314"/>
+  <testcase name="createNewAccountPositiveTestFromDataProviderWithCsvFile[2](User{email='dudkina2@gm.ru', password='Sofia12345!', firstname='Maria', secondname='Dudkina'})" classname="com.demowebshop.tests.CreateAccountTests" time="2.331"/>
+  <testcase name="createNewAccountWithExistedEmailNegativeTest" classname="com.demowebshop.tests.CreateAccountTests" time="2.488"/>
+  <system-out><![CDATA[23:28:27.257 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test createNewAccountPositiveTest with data: []
+23:28:41.178 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED createNewAccountPositiveTest
+23:28:41.179 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:28:41.179 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+23:28:41.213 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test createNewAccountPositiveTestFromDataProviderWithCsvFile with data: [User{email='jonsmith2@gm.de', password='Berlin2024$$', firstname='Jon', secondname='Smith'}]
+23:28:54.271 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED createNewAccountPositiveTestFromDataProviderWithCsvFile
+23:28:54.272 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:28:54.273 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+23:28:54.276 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test createNewAccountPositiveTestFromDataProviderWithCsvFile with data: [User{email='pauldin2@gm.su', password='Oslo202024!', firstname='Paul', secondname='Din'}]
+23:29:08.907 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED createNewAccountPositiveTestFromDataProviderWithCsvFile
+23:29:08.908 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:29:08.908 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+23:29:08.910 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test createNewAccountPositiveTestFromDataProviderWithCsvFile with data: [User{email='dudkina2@gm.ru', password='Sofia12345!', firstname='Maria', secondname='Dudkina'}]
+23:29:22.285 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED createNewAccountPositiveTestFromDataProviderWithCsvFile
+23:29:22.285 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:29:22.285 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+23:29:22.287 [Test worker] INFO  com.demowebshop.tests.TestBase -- Start test createNewAccountWithExistedEmailNegativeTest with data: []
+23:29:35.370 [Test worker] INFO  com.demowebshop.tests.TestBase -- PASSED createNewAccountWithExistedEmailNegativeTest
+23:29:35.381 [Test worker] INFO  com.demowebshop.tests.TestBase -- Stop test
+23:29:35.382 [Test worker] INFO  com.demowebshop.tests.TestBase -- =============================================
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
